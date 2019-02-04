@@ -1,9 +1,15 @@
 FactoryGirl.define do
-  factory :address do
+  factory :location do
     lat { Faker::Address.latitude }
     lng { Faker::Address.longitude }
     full_address do
       "#{Faker::Address.street_address},#{Faker::Address.city},#{Faker::Address.state_abbr} #{Faker::Address.zip}"
+    end
+
+    trait :as_dc do
+      full_address '1600 NW PENNSYLVANIA AVE, WASHINGTON, DC 20500, United States'
+      lat 38.897675
+      lng -77.036547
     end
 
     trait :as_detroit do
